@@ -12,6 +12,12 @@ exports.view = function(request, response) {
 	response.render('project', project);
 }
 
+exports.viewAlt = function(request, response) {
+	var projectID = request.params.id;
+	var project = getProjectData(projectID);
+	response.render('project', project);
+};
+
 function getProjectData(projectID) {
 	if (projectID == "random") {
 		projectID = Math.floor(Math.random() * projects.length) + 1;
